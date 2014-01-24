@@ -55,7 +55,7 @@
     }
   }
 
-  .footer {
+  .editing-footer {
     display: none;
   }
 
@@ -64,6 +64,13 @@
     top: 7px;
     right: 5px;
     display: none;
+  }
+
+  .normal-footer {
+    color: gray;
+    border-top: 1px solid black;
+    padding-top: 10px;
+    font-size: 0.8em;
   }
 
   &:hover {
@@ -75,8 +82,12 @@
   &.editing {
     border-color: blue;
 
-    .footer {
+    .editing-footer {
       display: block;
+    }
+
+    .normal-footer {
+      display: none;
     }
   }
 
