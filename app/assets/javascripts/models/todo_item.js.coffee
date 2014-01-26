@@ -1,8 +1,11 @@
 class App.Models.TodoItem extends Backbone.Model
-  initialize: (data, options) ->
-    @todoList = options.todoList
-
-  url: => "/todo_lists/#{@todoList.id}/todo_items"
+  validation: ->
+    unless @hasTitle()
+      return "Must provide a title"
 
   save: ->
-    @collection.todoList.save()
+    unless @validation()
+      @collection.todoList.save()
+
+  hasTitle: ->
+    @has('title') && @get('title').trim() != ""
